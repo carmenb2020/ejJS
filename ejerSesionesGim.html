@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Ficha{
+            constructor(n){
+                this.nombre = n;
+                this.sesiones = [];
+                this.numsesiones = 0
+            }
+            
+            anotar = function(km){
+                this.sesiones[this.numsesiones] = km;
+                this.numsesiones++;
+            }
+            
+            media = function(){
+                let media = 0;
+                for(let i=0; i< this.sesiones.length;i++){
+                    media += this.sesiones[i];
+                }
+                return media/this.numsesiones;
+            }
+        }
+    
+        let fichaJuan = new Ficha('Juan');
+        fichaJuan.anotar(10);
+        fichaJuan.anotar(8);
+        fichaJuan.anotar(6);
+        console.log("Media de kilómetros "+fichaJuan.media());
+    
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

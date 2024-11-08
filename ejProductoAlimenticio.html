@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let mi_array = [];
+
+        function Producto_alimenticio(codigo, nombre, precio) {
+            this.codigo = codigo;
+            this.nombre = nombre;
+            this.precio = precio;
+
+            this.imprimeDatos = function() {
+                
+                let impresion = '';
+
+                for (let x in this) {
+                
+                    if (typeof this[x] != 'function') {
+                
+                        impresion += x + ' → ' + this[x] + '<br />';
+                
+                    }
+                
+                }
+
+                return impresion;
+            }
+        }
+
+        mi_array[0] = new Producto_alimenticio(1, 'Moscatel', 5);
+        mi_array[1] = new Producto_alimenticio(2, 'Tarta', 12);
+        mi_array[2] = new Producto_alimenticio(3, 'Queso', 6);
+
+        for (let x of mi_array) {
+            document.write(x.imprimeDatos() + '<br />');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

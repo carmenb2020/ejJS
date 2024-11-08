@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function propiedades(){
+            let user = {};
+            user.name = "John";
+            user.surname = "Smith";
+            alert(user.name + " " + user.surname);
+            user.name = "Pete";
+            alert(user.name + " " + user.surname);
+            delete user.name;
+            alert(user.name);
+        }
+        
+       
+        function verificar() {
+            let elObjeto = {};
+            let verificado = verificarVacio(elObjeto);
+            if (verificado) alert("El objeto está vacío");
+            else alert("El objeto no está vacío");
+        }
+
+        function verificarVacio(obj){
+            for (let key in obj) {
+                return false;
+            }
+            return true;
+        }
+
+        function sumar() {
+            let salarios = {
+                John : 100,
+                Ann : 160,
+                Pete : 130
+            }
+            alert("La suma de salarios es: " + sum(salarios));
+        }
+
+        function sum(obj){
+            let sum = 0;
+            for (let key in obj){
+                if (typeof obj[key] == 'number') sum += obj[key];
+            }
+            return sum;
+        }
+
+        function multiplicar() {
+            let menu = {
+                width: 200,
+                height: 300,
+                title: "Mi menú"
+            };
+
+            alert(JSON.stringify(menu));
+            multiplyNumeric(menu);
+            alert("El objeto con las propiedades duplicadas: " + JSON.stringify(menu));
+
+            function multiplyNumeric(obj) {
+                for (let key in obj){
+                    if(typeof obj[key] == 'number') obj[key] *= 2;
+                }
+            }
+            
+        }
+
+        function constructoraCalculator() {
+            
+            function Calculator(){
+                this.read = function(){
+                    this.a = +prompt("Ingresa el número a", "");
+                    this.b = +prompt("Ingresa el número b", "");
+                }
+
+                this.sum = function(){
+                    return this.a + this.b;
+                }
+
+                this.mult = function(){
+                    return this.a * this.b;
+                }
+            }
+
+            let calculator = new Calculator();
+            calculator.read();
+            alert("La suma: " + calculator.a + " + " + calculator.b + " = "  + calculator.sum());
+            alert("El producto:  " + calculator.a + " * " + calculator.b + " = "   + calculator.mult());
+        }
+
+        function Accumulator(startingValue){
+            this.value = startingValue;
+            this.read = function(){
+                this.value += +(prompt("Ingresa el número a sumar", ""));
+            }
+        }
+        function acumuladorInicial(){
+            let acumulador = new Accumulator(10);
+            acumulador.read();
+            acumulador.read();
+            alert("El resultado es: " + acumulador.value);
+        }
+        
+
+        function sumSalaries(pSalaries) {
+            let sum = 0;
+            for (let salary of Object.values(pSalaries)) {
+                sum += +salary;
+            }
+            return sum;
+        }
+
+        // reduce recorre el array de salarios,
+        // sumándolos
+        // y devuelve el resultado
+        // function sumSalaries(salaries) {
+        //   return Object.values(salaries).reduce((a, b) => a + b, 0) // 650
+        // }
+        function sumarSalarios() {
+            let salaries = {
+                "John": 100,
+                "Pete": 300,
+                "Mary": 250
+            };
+            alert("La suma de salarios es: " + sumSalaries(salaries));
+        }
+        
+        function count(obj) {
+            return Object.keys(obj).length;
+        }
+        function contar() {
+            let user = {
+                name: 'John',
+                age: 30,
+                "is Boss": true
+            };
+            alert("El objeto tiene " + count(user) + " propiedades");
+        }
+
+        function topSalary(obj) {
+            let maxSalary = 0;
+            let maxName = null;
+            for (let [name, salary] of Object.entries(obj)){
+                if (salary > maxSalary){
+                    maxSalary = salary;
+                    maxName = name;
+                }
+            }
+            return maxName;
+        }
+
+        function maximoValor() {
+            
+            let salaries = {
+                "John": 100,
+                "Pete": 300,
+                "Mary": 350
+            };
+            alert("Persona con sueldo mayor: " + topSalary(salaries));
+        }
+            
+    </script>
+</head>
+<body>
+    <h1>Ejercicios básicos Objetos</h1>
+    1. <input type="button" value="Propiedades" onclick="propiedades()"> <br>
+    2. <input type="button" value="Verificar vacío" onclick="verificar()"> <br>
+    3. <input type="button" value="Suma propiedades" onclick="sumar()"> <br>
+    4. <input type="button" value="Multiplicar propiedades" onclick="multiplicar()"> <br>
+    5. <input type="button" value="Función constructora con 3 métodos" onclick="constructoraCalculator()"> <br>
+    6. <input type="button" value="ConstructorAcumulador()" onclick="acumuladorInicial()"> <br>
+    7. <input type="button" value="EjMetodoObject" onclick="sumarSalarios()"> <br>
+    8. <input type="button" value="ContarPropiedadesconMetodoObject" onclick="contar()"> <br>
+    9. <input type="button" value="MaxValorPropiedadesMetodoObject" onclick="maximoValor()">
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos Objeto Date</title>
+    <script>
+        function fecha(){
+            let obj_fecha = new Date();
+            let completo = obj_fecha.toDateString();
+            let hora = obj_fecha.getHours();
+            let minuto = obj_fecha.getMinutes();
+            let segundo = obj_fecha.getSeconds();
+            let dia = obj_fecha.getDate();
+            let mes = obj_fecha.getMonth() + 1;
+            let anis = obj_fecha.getFullYear();
+            alert(hora + ":" + minuto + ":" + segundo );
+            alert (dia + "/" + mes + "/" + anis);
+            alert(completo);
+        }
+    </script>
+</head>
+<body onload="fecha();"> 
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function Ejercicios(){
+            let opt = prompt("Escoge lo que quieres hacer:\n " + "1. Separar string con guiones \n 2.Separar string en mitades");
+            switch (+opt) {
+                case 1:{
+                    SepararCadenaconGuion();
+                    break;
+                }
+                case 2:{
+                    DividirCadenaMitad();
+                    break;
+                }
+            }
+        }
+
+        function SepararCadenaconGuion(){
+            let str = prompt("Escribe la palabra a separar","");
+            let array = str.split("");
+            str = array.join("-");
+            document.write("La cadena separada es: " + str);
+        }
+
+        function DividirCadenaMitad(){
+            let str = prompt("Escribe la palabra a dividir","");
+            let mitad = Math.round(str.length/2);
+            // str1 = str.slice(0, mitad);
+            // str2 = str.slice(mitad);
+            // document.write('Las dos mitades de la cadena ' + '<strong>' + str + '</strong>' + ' son:<br>cadena 1: ' + str1 + "<br> cadena 2: " + str2);
+            str1 = str.substring(0,mitad);
+            str2 = str.substr(mitad);
+            document.write('Las dos mitades de la cadena ' + '<strong>' + str + '</strong>' + ' son:<br>cadena 1: ' + str1 + "<br> cadena 2: " + str2);
+        }
+
+        
+    </script>
+</head>
+<body onload="Ejercicios()">
+</body>
+</html>

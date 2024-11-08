@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Proveedor{
+            constructor(nbr, email, tel){
+                this.nombre = nbr;
+                this.email = email;
+                this.telefono = tel;
+            }
+        }
+        class Articulo{
+            constructor(nbr, precio, prov){
+                this.nombre = nbr;
+                this.precio = precio;
+                this.proveedor = prov;
+            }
+            telefono(){
+                return {
+                    nombre : this.proveedor.nombre, 
+                    telefono : this.proveedor.telefono
+                }
+            }
+        }
+        /*probar*/
+        let prov1 = new Proveedor('TecnoSoft', "ventas@tecnosoft.com", 985791234)
+        let monitor = new Articulo('Monitor Super', 250, prov1);
+        let quien;
+        console.log("Proveedor de "+ monitor.nombre);
+        quien = monitor.telefono();
+        console.log(quien.nombre);
+        console.log(quien.telefono);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

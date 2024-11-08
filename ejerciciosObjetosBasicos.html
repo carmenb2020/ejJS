@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function alumno1(){
+            let alumno = {
+                name: "Ana",
+                ingles: 4.5,
+                programacion: 5,
+                html: 8,
+
+                promedio(){
+                    alert("El promedio de notas del alumno " + this.name + " es: " + ((this.ingles+this.programacion+this.html)/3).toFixed(2));
+                }
+            }
+            alumno.promedio();
+        }
+    
+        function doublePrice(){
+            let prices = {
+                banana: 1,
+                orange: 2,
+                meat: 4,
+            };
+            let doublePrices = Object.fromEntries(Object.entries(prices).map(([key, value]) => [key, value * 2]));
+            alert(doublePrices.meat);
+            alert(prices.meat);
+        }
+
+        function crearPersonas(){
+
+            function Persona(name,age){
+                this.name = name;
+                this.age = age;
+                this.imprimirPersona = imprimirPersona
+            }
+            
+            function imprimirPersona(){
+                // document.write("La edad de " + this.name + " es " + this.age + "<br>");
+                document.write(`La edad de ${this.name}  es  ${this.age} <br>`);
+            }
+
+            let personas=new Array(4);
+            personas[0]=new Persona('juan',44);
+            personas[1]=new Persona('ana',22);
+            personas[2]=new Persona('pedro',44);
+            personas[3]=new Persona('marcos',18); 
+
+            // for(let f=0;f<personas.length;f++){
+            //     personas[f].imprimirPersona();
+            // }
+
+            for(let persona of personas){
+                persona.imprimirPersona();
+            }
+        }
+
+        function ejSymbol() {
+            let user = { // pertenece a otro código
+               name: "John"
+            };
+            let id = Symbol("id");
+                user[id] = 1;
+                alert( user[id] ); 
+                alert(JSON.stringify(user));
+                alert(user.id);
+            }
+
+    </script>
+</head>
+<body>
+   1. <input type="button" value="ejercicioAlumno" onclick="alumno1()"><br>
+   2. <input type="button" value="ejercicioDuplicarValor" onclick="doublePrice()"> <br>
+   3. <input type="button" value="ejemploPersonasArray" onclick="crearPersonas()"> <br>
+   4. <input type="button" value="ejemploSymbol" onclick="ejSymbol()">
+</body>
+</html>
